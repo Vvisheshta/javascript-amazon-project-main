@@ -1,4 +1,4 @@
-console.log('hello!');
+import {cart} from '../data/cart.js';
 
 //Looping through the array to create a html
 let producstHTML='';
