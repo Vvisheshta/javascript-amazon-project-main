@@ -27,7 +27,7 @@ export function renderOrderSummary(){
         }
         const deliveryDate=today.add(deliveryOption.deliveryDays,'days');
         const dateString=deliveryDate.format('dddd, MMMM D');
-
+        console.log(matchingProduct);
         cartSummaryHTML= cartSummaryHTML+ `
         
             <div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingProduct.id}">
@@ -44,7 +44,7 @@ export function renderOrderSummary(){
                     ${matchingProduct.name}
                     </div>
                     <div class="product-price">
-                    $${formatCurrency(matchingProduct.priceCents)}
+                    ${matchingProduct.getPriceCents()}
                     </div>
                     <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                     <span>
