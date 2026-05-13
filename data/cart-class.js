@@ -1,14 +1,14 @@
 class Cart {
     cartItems;
-    localStorageKey;
+    #localStorageKey;
 
     constructor(localStorageKey){
-        this.localStorageKey=localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey=localStorageKey;
+        this.#loadFromStorage();
     }
 
-    loadFromStorage(){
-        this.cartItem= JSON.parse(localStorage.getItem(this.localStorageKey));
+    #loadFromStorage(){
+        this.cartItem= JSON.parse(localStorage.getItem(this.#localStorageKey));
         //localStorage can only save string, so to convert that to array we use JSON.parse()
 
         if(!this.cartItems){
@@ -29,7 +29,7 @@ class Cart {
 
     saveToStorage(){
             //saving the cart in localstorage to be unaffected by refresh
-            localStorage.setItem(this.localStorageKey,JSON.stringify(this.cartItems));
+            localStorage.setItem(this.#localStorageKey,JSON.stringify(this.cartItems));
         }
 
     addToCart(productId){
@@ -91,7 +91,6 @@ const businessCart = new Cart('cart-business');
 
 cart.addToCart('83d4ca15-0f35-48f5-b7a3-1ea210004f2e');
 
-businessCart.loadFromStorage();
 console.log(cart);
 console.log(businessCart);
 console.log(businessCart instanceof Cart);
