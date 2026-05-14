@@ -6,6 +6,24 @@ import { loadCart } from "../data/cart.js";
 //import '../data/backend-practice.js'
 
 
+
+async function loadPage(){
+    
+    await loadProductsFetch();
+
+    await new Promise((resolve)=>{
+        loadCart(()=>{
+            resolve();
+        })
+    })
+    renderOrderSummary();
+    renderPaymentSummary();
+
+}
+
+loadPage();
+
+/*
 Promise.all([
     loadProductsFetch(),
     new Promise((resolve)=>{
@@ -19,8 +37,27 @@ Promise.all([
     renderPaymentSummary();
 })
 
+---------using await with Promise.all()
+async function loadPage() {
 
+  const values = await Promise.all([
+    loadProductsFetch(),
 
+    new Promise((resolve) => {
+      loadCart(() => {
+        resolve();
+      });
+    })
+
+  ]);
+
+  renderOrderSummary();
+  renderPaymentSummary();
+}
+
+loadPage();
+
+*/
 /*
 new Promise((resolve)=>{
     loadProducts(()=>{
