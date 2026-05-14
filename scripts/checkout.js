@@ -8,16 +8,22 @@ import { loadCart } from "../data/cart.js";
 
 
 async function loadPage(){
+    try{
     
-    await loadProductsFetch();
+        await loadProductsFetch();
 
-    await new Promise((resolve)=>{
-        loadCart(()=>{
-            resolve();
+        await new Promise((resolve,reject)=>{
+            //throw 'error1';       //creating error manually synchronous
+            loadCart(()=>{
+                resolve('value A');
+                //reject('error2');  ////creating error manually asynchronous
+            })
         })
-    })
-    renderOrderSummary();
-    renderPaymentSummary();
+        renderOrderSummary();
+        renderPaymentSummary();
+    } catch(error){
+        console.log('Errrrr ! Run again !!!')
+    }
 
 }
 
