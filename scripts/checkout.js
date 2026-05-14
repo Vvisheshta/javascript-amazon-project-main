@@ -24,7 +24,6 @@ async function loadPage(){
     } catch(error){
         console.log('Errrrr ! Run again !!!')
     }
-
 }
 
 loadPage();
