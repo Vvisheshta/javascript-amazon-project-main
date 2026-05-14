@@ -14,7 +14,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-name limit-text-to-2-lines">
-            ${product.name}}
+            ${product.name}
           </div>
 
           <div class="product-rating-container">
@@ -43,7 +43,7 @@ products.forEach((product)=>{
               <option value="10">10</option>
             </select>
           </div>
-
+          ${product.extraInfoHtml()}
           <div class="product-spacer"></div>
 
           <div class="added-to-cart">
