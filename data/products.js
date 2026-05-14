@@ -715,3 +715,29 @@ export const products = [
   return new Products(productDetails);
 })
 
+/*
+const date= new Date();
+console.log(date)
+console.log(date.toLocaleTimeString());
+*/
+/*
+console.log(this);
+const obj1={
+  a: 2,
+  b:this.a //gives undefined and this is initialized yet with any object
+}
+*/
+/*
+const obj2={
+  method(){
+    console.log(this.a)
+  },
+  a: 2
+}
+obj2.method();
+*/
+
+function logThis(){
+  console.log(this) //prints undefined as uninitialized yet
+}
+logThis.call('hello'); //passed 'hello' to this using .call()
